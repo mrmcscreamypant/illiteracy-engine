@@ -7,7 +7,7 @@ import pgzero.screen as pgzdraw
 @renderObject
 class PlayerRender(CustomRender):
   def __init__(self,main):
-    super().__init__(main,"player",1)
+    super().__init__(main,"player",0)
     self.objects = []
 
   def draw(self):

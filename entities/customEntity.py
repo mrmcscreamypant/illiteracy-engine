@@ -10,4 +10,3 @@ class Entity():
       print(f"Renderer '{renderer}' does not support entities")
     except KeyError:
       print(f"Renderer '{renderer}' is not properly regestered")
-    self.main.entities.append(self)

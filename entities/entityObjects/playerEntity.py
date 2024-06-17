@@ -5,6 +5,7 @@ from entities.regester import entityObject
 class Player(Entity):
   def __init__(self,main):
     super().__init__(main,"player")
+    self.main.entities.append(self)
 
   def update(self):
     self.pos.x += 1
