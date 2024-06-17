@@ -5,7 +5,7 @@ import pgzero.game as pgz
 @renderObject
 class SkyRender(CustomRender):
   def __init__(self,main):
-    super().__init__(main,-1)
+    super().__init__(main,"sky",-1)
 
   def draw(self):
     pgz.screen.fill("skyblue")

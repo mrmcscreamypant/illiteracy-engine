@@ -9,7 +9,7 @@ class Main():
     self.initEntities()
   
   def initRenders(self):
-    self.renders = []
+    self.renders = {}
     renders.regester.regesterRenders(self)
 
   def initEntities(self):
@@ -18,7 +18,8 @@ class Main():
 
   def draw(self):
     for render in self.renders:
-      render.draw()
+      self.renders[render].draw()
 
   def update(self):
-    pass
+    for entity in self.entities:
+      entity.update()
