@@ -15,11 +15,3 @@ class Main():
   def initEntities(self):
     self.entities = []
     entities.regester.regesterEntities(self)
-
-  def draw(self):
-    for render in self.renders:
-      self.renders[render].draw()
-
-  def update(self):
-    for entity in self.entities:
-      entity.update()
