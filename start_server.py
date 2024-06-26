@@ -27,6 +27,10 @@ bootstrap_client_file = get_bootstrap_client_file()
 def game():
   return bootstrap_client_file
 
+@route("/client-raw")
+def client_raw():
+  return client_file
+
 print("\nLaunching bottle server...\n")
 
 run(host="0.0.0.0",port=8080)

@@ -3,12 +3,11 @@ from .compile_css import compile_css
 
 from config.webserver import PROJECT_NAME
 
+
 def html_wrap():
   print("Injecting into boilerplate HTML...")
-  
+
   result = f"""\
-<!DOCTYPE html>
-<html>
   <head>
     <title>{PROJECT_NAME}</title>
     <script>
@@ -20,9 +19,8 @@ def html_wrap():
   </head>
   <body>
     <canvas id="screen"></canvas>
-  </body>
-</html>\
+  </body>\
 """
-  
+
   print("HTML complete")
   return result
