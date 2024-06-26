@@ -11,4 +11,4 @@ but they abstract away too much. This does more of the same, but in a far more l
 //TODO
 <hr>
 
-See the wiki to get started
+See the <a href="https://github.com/mrmcscreamypant/illiteracy-engine/wiki">wiki</a> to get started
