@@ -1,4 +1,3 @@
-import pgzero
 import renders.regester
 import entities.regester
 
