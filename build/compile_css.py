@@ -4,7 +4,9 @@ from .textutil import info,warn
 
 chunks = [
   "document.css",
-  "canvas.css"
+  "canvas.css",
+  "loader.css",
+  "loading_screen.css"
 ]
 
 def compile_css():

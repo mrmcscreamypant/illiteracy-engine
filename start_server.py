@@ -1,4 +1,4 @@
-from bottle import route, run
+from bottle import route, run, static_file
 from config.build import CLIENT_FILE_PATH
 from config.webserver import PATH_TO_GAME
 
@@ -22,6 +22,14 @@ def go():
       data = file.read()
       print("client bootstrap file fetched sucessfully")
     return data
+
+  def get_favicon():
+    path_to_file = "logo.png"
+
+    print(f"fetching favicon file '{path_to_file}'")
+    data = static_file(path_to_file,root="./")
+    print("favicon file fetched sucessfully")
+    return data
   
   client_file = json.loads(get_client_file())
   bootstrap_client_file = get_bootstrap_client_file()
@@ -38,6 +46,10 @@ def go():
   def client_raw_css():
     return client_file["css"]
 
+  @route("/favicon")
+  def favicon():
+    return get_favicon()
+  
   
   print("\nLaunching bottle server...\n")
   

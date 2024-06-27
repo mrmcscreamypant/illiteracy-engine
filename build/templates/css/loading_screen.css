@@ -1,0 +1,12 @@
+body {
+  background-color: black;
+}
+
+.icon-tiny {
+  width: 50px;
+  height: 50px;
+}
+
+.title-text {
+  color: white;
+}

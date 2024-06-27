@@ -11,7 +11,7 @@ def go():
   print(f"Configured build output file is '{CLIENT_FILE_PATH}'")
   warn("The file will be overwritten")
   try:
-    input("Press enter to continue (ctrl+c to cancel) ")
+    pass#input("Press enter to continue (ctrl+c to cancel) ")
   except KeyboardInterrupt:
     raise BuildException("Build canceld")
   

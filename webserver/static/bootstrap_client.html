@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html id="doc">
   <head on>
-    <title>Illiterate Engine</title>
+    <title>Illiteracy Engine</title>
+    <link rel="icon" type="image/x-icon" href="/favicon">
+    
     <script>
       async function getJS() {
         const xhttp = new XMLHttpRequest();
@@ -31,46 +33,16 @@
       }
 
       getCSS()
-      setTimeout(getJS,3000)
-      console.log("Illiterate Engine - client v0.0.0alpha")
+      setTimeout(getJS,1000)
+      console.log("Illiteracy Engine - client v0.0.0alpha")
     </script>
-    <style>
-      body {
-        width: 100%;
-        height: 100%;
-        padding: 0px;
-        margin: 0px;
-        background-color: black;
-        color: white;
-      }
-      
-      html {
-        padding: 0px;
-        margin: 0px;
-        overflow-y: hidden;
-      }
-
-      /* HTML: <div class="loader"></div> */
-      .loader {
-        height: 4px;
-        width: 50%px;
-        --c:no-repeat linear-gradient(green 0 0);
-        background: var(--c),var(--c),white;
-        background-size: 60% 100%;
-        animation: l16 3s infinite;
-      }
-      @keyframes l16 {
-        0%   {background-position:-150% 0,-150% 0}
-        66%  {background-position: 250% 0,-150% 0}
-        100% {background-position: 250% 0, 250% 0}
-      }
-    </style>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
   <body id="body">
     <div style="width: 100%;height:100%;">
       <div  class="w3-display-middle w3-center w3-animate-opacity">
-        <h1>Illiterate Engine</h1>
+        <img src="/favicon" class="icon-tiny">
+        <h1 class="title-text">Illiteracy Engine</h1>
         <div class="loader"></div>
       </div>
     </div>
