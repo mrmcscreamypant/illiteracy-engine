@@ -10,3 +10,13 @@ body {
 .title-text {
   color: white;
 }
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.title-container {
+  animation-name: fade-in;
+  animation-duration: 4s;
+}
