@@ -33,6 +33,11 @@ def go():
   @route("/bootstrap-client/js")
   def client_raw_js():
     return client_file["js"]
+
+  @route("/bootstrap-client/css")
+  def client_raw_css():
+    return client_file["css"]
+
   
   print("\nLaunching bottle server...\n")
   
