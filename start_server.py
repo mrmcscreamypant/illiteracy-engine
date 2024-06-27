@@ -2,6 +2,8 @@ from bottle import route, run
 from config.build import CLIENT_FILE_PATH
 from config.webserver import PATH_TO_GAME
 
+import json
+
 def go():
   print("\nIlliteracy Engine - v0.0.0alpha\n")
   
@@ -21,16 +23,16 @@ def go():
       print("client bootstrap file fetched sucessfully")
     return data
   
-  client_file = get_client_file()
+  client_file = json.loads(get_client_file())
   bootstrap_client_file = get_bootstrap_client_file()
   
   @route(PATH_TO_GAME)
   def game():
     return bootstrap_client_file
   
-  @route("/client-raw")
-  def client_raw():
-    return client_file
+  @route("/bootstrap-client/js")
+  def client_raw_js():
+    return client_file["js"]
   
   print("\nLaunching bottle server...\n")
   

@@ -3,6 +3,8 @@ from .getfile import get
 from .textutil import info,warn
 
 chunks = [
+  "engine.js",
+  "bootstrap.js",
   "request.js",
   "display.js"
 ]
@@ -12,7 +14,10 @@ def compile_js():
   result = ""
   for chunk in chunks:
     try:
-      result += get("js/"+chunk)
+      result += f"\n\n//{chunk}\n\n"
+      result += f"""\
+      {get("js/"+chunk)}\
+      """
       info(f"Sucessfully imported JS chunk '{chunk}'")
     except FileNotFoundError:
       warn(f"Failed to import JS chunk '{chunk}' (418)")

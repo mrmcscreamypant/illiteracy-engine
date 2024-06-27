@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html id="doc">
-  <head>
+  <head on>
     <title>Illiterate Engine</title>
     <script>
-      async function loadPage() {
+      async function getJS() {
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-          document.getElementById("doc").innerHTML = this.responseText;
+          let tag = document.createElement("script")
+          tag.innerHTML = this.responseText
+          document.getElementsByTagName("head")[0].appendChild(tag)
+          bootstrap()
           }
-        xhttp.open("GET", "client-raw", true);
+        xhttp.open("GET", "bootstrap-client/js", true);
         xhttp.send();
       }
-      setTimeout(loadPage,3000)
+      setTimeout(getJS,3000)
+      console.log("Illiterate Engine - client v0.0.0alpha")
     </script>
     <style>
       body {
