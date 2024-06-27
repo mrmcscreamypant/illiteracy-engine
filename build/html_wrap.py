@@ -2,6 +2,7 @@ from .compile_js import compile_js
 from .compile_css import compile_css
 
 from config.webserver import PROJECT_NAME
+import random
 
 
 def html_wrap():
@@ -18,7 +19,7 @@ def html_wrap():
     </style>
   </head>
   <body>
-    <canvas id="screen"></canvas>
+    <canvas id="screen">Error loading HTML canvas</canvas>
   </body>\
 """
 

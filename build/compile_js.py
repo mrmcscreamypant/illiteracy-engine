@@ -3,7 +3,8 @@ from .getfile import get
 from .textutil import info,warn
 
 chunks = [
-  "request.js"
+  "request.js",
+  "display.js"
 ]
 
 def compile_js():

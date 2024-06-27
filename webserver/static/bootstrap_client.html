@@ -3,7 +3,7 @@
   <head>
     <title>Illiterate Engine</title>
     <script>
-      function loadPage() {
+      async function loadPage() {
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
           document.getElementById("doc").innerHTML = this.responseText;
