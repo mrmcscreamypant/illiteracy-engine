@@ -4,11 +4,11 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #412f2f;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width:100%
 }
 
 #canvas-wrap {

@@ -1,6 +1,6 @@
 from bottle import route, run, static_file
 from config.build import CLIENT_FILE_PATH
-from config.webserver import PATH_TO_GAME
+from config.webserver import PATH_TO_GAME, SERVER_PORT
 
 import json
 
@@ -53,7 +53,7 @@ def go():
   
   print("\nLaunching bottle server...\n")
   
-  run(host="0.0.0.0",port=8080)
+  run(host="0.0.0.0",port=SERVER_PORT)
 
 if __name__ == "__main__":
   go()

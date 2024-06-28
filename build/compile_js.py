@@ -3,6 +3,7 @@ from .getfile import get
 from .textutil import info,warn
 
 chunks = [
+  "vec.js",
   "engine.js",
   "bootstrap.js",
   "request.js",
