@@ -1,4 +1,4 @@
-<h1>Illiteracy Engine</h1>
+<img href="/logo.png"><h1>Illiteracy Engine</h1>
 <h3><i>When one language is more than enough</i></h3>
 
 A web-based python authoritive multiplayer game engine.
