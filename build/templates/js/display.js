@@ -1,10 +1,53 @@
 class CanvasElement {
   constructor() {
     this.element = document.getElementById("screen")
+    this.fix_resolution()
     this.screen = this.element.getContext("2d")
+    this.screen.scale(1,1)
+  }
+
+  fix_resolution() {
+    const dimensions = this.getObjectFitSize(
+      true,
+      this.element.clientWidth,
+      this.element.clientHeight,
+      this.element.width,
+      this.element.height
+    );
+  
+    this.element.width = dimensions.width;
+    this.element.height = dimensions.height;
+  }
+
+  getObjectFitSize(
+    contains /* true = contain, false = cover */,
+    containerWidth,
+    containerHeight,
+    width,
+    height
+  ) {
+    var doRatio = width / height;
+    var cRatio = containerWidth / containerHeight;
+    var targetWidth = 0;
+    var targetHeight = 0;
+    var test = contains ? doRatio > cRatio : doRatio < cRatio;
+  
+    if (test) {
+      targetWidth = containerWidth;
+      targetHeight = targetWidth / doRatio;
+    } else {
+      targetHeight = containerHeight;
+      targetWidth = targetHeight * doRatio;
+    }
+  
+    return {
+      width: targetWidth,
+      height: targetHeight,
+      x: (containerWidth - targetWidth) / 2,
+      y: (containerHeight - targetHeight) / 2
+    };
   }
 }
-
 
 class Display {
   constructor() {
@@ -23,13 +66,13 @@ class Display {
   }
 
   display_welcome_message() {
-    var grd = this.screen.createLinearGradient(0, 0, 200, 0);
-    grd.addColorStop(0, "red");
-    grd.addColorStop(1, "white");
+    this.drawText("No render defined...",{x:0,y:0})
+  }
 
-    // Fill with gradient
-    this.screen.fillStyle = grd;
-    this.screen.fillRect(0, 0, 150, 80);
+  drawText(text,vec,fontsize=50,font="Arial") {
+    this.screen.fill = "red"
+    this.screen.font = `${fontsize}px ${font}`
+    this.screen.fillText(text,vec.x,vec.y+fontsize)
   }
 
   getMousePos(canvasDom, mouseEvent) {

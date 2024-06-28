@@ -5,11 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run the project",
-            "type": "debugpy",
+            "name": "Launch",
+            "type": "f5anything",
             "request": "launch",
-            "program": "run.py",
-            "console": "integratedTerminal"
-        }
+            "command": "python3 run.py",
+            "terminalName": "F5 Anything",
+            "terminalIndex": 0,
+            "showTerminal": true,
+            "vscCommand": "help"
+        },
     ]
 }
