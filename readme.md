@@ -8,7 +8,4 @@ Browser-based games are difficult to make. Multiplayer ones are even more so. Th
 but they abstract away too much. This does more of the same, but in a far more lightweight and efficent way.
 <hr>
 <h5>Installation:</h5>
-//TODO
-<hr>
-
 See the <a href="https://github.com/mrmcscreamypant/illiteracy-engine/wiki">wiki</a> for instillation instructions
