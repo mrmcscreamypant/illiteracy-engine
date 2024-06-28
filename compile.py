@@ -5,13 +5,14 @@ from build.compile import full_compile
 
 from build.textutil import warn
 
-def go():
+def go(skip_file_overwrite_query=False):
   print("\nIlliteracy Engine - builder version v0.0.0alpha\n")
   
   print(f"Configured build output file is '{CLIENT_FILE_PATH}'")
   warn("The file will be overwritten")
   try:
-    pass#input("Press enter to continue (ctrl+c to cancel) ")
+    if not skip_file_overwrite_query:
+      input("Press enter to continue (ctrl+c to cancel) ")
   except KeyboardInterrupt:
     raise BuildException("Build canceld")
   

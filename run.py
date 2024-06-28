@@ -3,5 +3,5 @@
 import compile
 import start_server
 
-compile.go()
+compile.go(True)
 start_server.go()

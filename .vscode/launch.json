@@ -5,14 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
+            "name": "Dev reload",
             "type": "f5anything",
             "request": "launch",
             "command": "python3 run.py",
             "terminalName": "F5 Anything",
-            "terminalIndex": 0,
-            "showTerminal": true,
-            "vscCommand": "help"
+            "terminalIndex": 1,
+            "showTerminal": false,
+            "vscCommand": ""
         },
     ]
 }
