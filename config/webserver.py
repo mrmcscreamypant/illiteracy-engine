@@ -1,4 +1,4 @@
 PATH_TO_GAME = "/"
 PROJECT_NAME = "Illiterate Engine"
 
-SERVER_PORT = 9000
+SERVER_PORT = 8080
