@@ -1,4 +1,4 @@
-<img href="/logo.png"><h1>Illiteracy Engine</h1>
+![logo](https://github.com/mrmcscreamypant/illiteracy-engine/assets/78570980/113eb946-44cc-458f-8c91-2f7995e89dcf)<h1>Illiteracy Engine</h1>
 <h3><i>When one language is more than enough</i></h3>
 
 A web-based python authoritive multiplayer game engine.
