@@ -120,6 +120,7 @@ __pycache__/
 .pytest_cache/
 .github
 .code_workspace
+client_game.json
 
 # Celery stuff
 celerybeat-schedule
