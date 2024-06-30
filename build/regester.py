@@ -4,32 +4,45 @@ from .textutil import info,warn
 class NonMatchedExtension(Exception):
   pass
 
-regesteredObjects = []
+newRegesteredObjects = []
 
 def regesterObject(func):
-  def wrapperRenderObject(*args, **kwargs):
-    func(*args, **kwargs)
-  regesteredObjects.append(wrapperRenderObject)
-  return wrapperRenderObject
+  class wrapperRenderObject():
+    name = func.__name__
+    def call(*args, **kwargs):
+      return func(*args,**kwargs)
+  
+  newRegesteredObjects.append(wrapperRenderObject)
+  print(f"Found object {func} to regester")
+  return func
 
-def regesterObjects(path,extension,module=".",args=()):
-  regesteredObjects = []
+def regesterObjects(path,extension,module=".",args={}):
+  global newRegesteredObjects
+  def dummy_func(*kw):
+    pass
+
+  regesteredObjects = [dummy_func]
   for dir in os.listdir(path):
     try:
+      newRegesteredObjects = []
       name = dir.split(".")[0]
       ext = dir.split(".")[-1]
 
       if extension != ext:
         raise NonMatchedExtension()
 
-      __import__(f"{module}.{name}")
-      regesteredObjects[-1](*args)
+      exec(f"import {module}.{name}")
+
+      for object in newRegesteredObjects:
+        regesteredObjects.append(object.call(**args))
+        print(f"Object '{object.name}' sucessfully regestered from file '{dir}'")
+      
       info(f"'{dir}' sucessfully regestered")
-    except ImportError as e:
-      warn(f"Error regestering '{dir}': '{e}'")
     except NonMatchedExtension:
       warn(f"Skipping regestering '{dir}' (.{ext} != .{extension})")
-  return regesteredObjects
+    except Exception as e:
+      warn(f"Error regestering '{dir}': '{e}'")
+  return regesteredObjects[1:]
   
 def regesterFiles(path,extension):
   regesteredObjects = []
@@ -42,8 +55,6 @@ def regesterFiles(path,extension):
 
       regesteredObjects.append(dir)
       info(f"'{dir}' sucessfully regestered")
-    except ImportError as e:
-      warn(f"Error regestering '{dir}': '{e}'")
     except NonMatchedExtension:
       warn(f"Skipping regestering '{dir}' (.{ext} != .{extension})")
   return regesteredObjects

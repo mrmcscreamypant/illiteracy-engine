@@ -13,7 +13,7 @@ def go():
   try:
     pass#input("Press enter to continue (ctrl+c to cancel) ")
   except KeyboardInterrupt:
-    raise BuildException("Build canceld")
+    raise BuildException("Build cancled")
   
   print("\nBeginning compile...")
   result = full_compile()
