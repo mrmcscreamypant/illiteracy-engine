@@ -3,10 +3,5 @@ from .object import GameObject, clientMethod
 
 @regesterObject
 class TestObject(GameObject):
-    def _init(self):
-      clientMethod(self,
-        """
-        constructor() {
-          alert(foo)
-        }
-        """)
+    def _init(self,main):
+      main.display.fill("green")

@@ -66,7 +66,12 @@ class Display {
   }
 
   display_welcome_message() {
-    this.drawText("No render defined...",{x:0,y:0})
+    this.drawText("Loading...",{x:5,y:this.element.element.height-25},20)
+  }
+
+  fill(color) {
+    this.screen.fill = color
+    this.screen.fillRectangle(0,0,this.width,this.height)
   }
 
   drawText(text,vec,fontsize=50,font="Arial") {
