@@ -4,6 +4,9 @@ from .textutil import info,warn
 class NonMatchedExtension(Exception):
   pass
 
+class FoundFolder(Exception):
+  pass
+
 newRegesteredObjects = []
 
 def regesterObject(func):
@@ -29,6 +32,8 @@ def regesterObjects(path,extension,module=".",args={}):
       ext = dir.split(".")[-1]
 
       if extension != ext:
+        if os.path.isdir(path+"/"+dir):
+          raise FoundFolder()
         raise NonMatchedExtension()
 
       exec(f"import {module}.{name}")
@@ -38,6 +43,9 @@ def regesterObjects(path,extension,module=".",args={}):
         print(f"Object '{object.name}' sucessfully regestered from file '{dir}'")
       
       info(f"'{dir}' sucessfully regestered")
+    except FoundFolder:
+      info(f"Sub-dir found - regestering files in dir '{path}/{dir}'")
+      regesteredObjects += regesterObjects(path+f"/{dir}",extension,module+f".{dir}",args)
     except NonMatchedExtension:
       warn(f"Skipping regestering '{dir}' (.{ext} != .{extension})")
     except Exception as e:

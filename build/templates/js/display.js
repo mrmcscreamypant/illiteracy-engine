@@ -4,6 +4,7 @@ class CanvasElement {
     this.fix_resolution()
     this.screen = this.element.getContext("2d")
     this.screen.scale(1,1)
+
   }
 
   fix_resolution() {
@@ -49,6 +50,8 @@ class CanvasElement {
   }
 }
 
+var _renders = []
+
 class Display {
   constructor() {
     console.log("Constructing display...")
@@ -61,21 +64,31 @@ class Display {
     this.screen = this.element.screen
 
     this.display_welcome_message()
+
+    console.log("Canvas refresh trigger regestering....")
+    const self = this;setInterval(()=>{self.refresh(self)},16)
+    console.log("Canvas refresh trigger regestered")
     
     console.log("Canvas properly initalized")
+  }
+
+  refresh(self) {
+    for (var i=0;i<_renders.length;i++) {
+      console.log(_renders[i])
+    }
   }
 
   display_welcome_message() {
     this.drawText("Loading...",{x:5,y:this.element.element.height-25},20)
   }
 
-  fill(color) {
-    this.screen.fill = color
-    this.screen.fillRectangle(0,0,this.width,this.height)
+  fill(color="white") {
+    this.screen.fillStyle = color
+    this.screen.fillRect(0,0,this.element.element.width,this.element.element.height)
   }
 
-  drawText(text,vec,fontsize=50,font="Arial") {
-    this.screen.fill = "red"
+  drawText(text,vec,fontsize=50,font="Arial",color="black") {
+    this.screen.fillStyle = color
     this.screen.font = `${fontsize}px ${font}`
     this.screen.fillText(text,vec.x,vec.y+fontsize)
   }
